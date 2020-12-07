@@ -1,0 +1,13 @@
+.tableBtn{
+    margin: 20px;
+}
+
+.statusButton{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tableContainer{
+    margin: 20px;
+    display: block;
+}

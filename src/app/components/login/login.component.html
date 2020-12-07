@@ -1,0 +1,30 @@
+<div class="container">
+    <mat-tab-group animationDuration="0ms">
+      <mat-tab label="Login">
+        <div>
+            <form class="example-form" [formGroup]="loginForm" (ngSubmit)="loginMe()">
+             <mat-form-field class="example-full-width">
+               <mat-label>Mobile Number</mat-label>
+               <input matInput formControlName="MobileNumber" required>
+              </mat-form-field>
+              <div class="error" *ngIf="MobileNumber.invalid && (MobileNumber.dirty || MobileNumber.touched)" >
+                <span class="red" *ngIf="MobileNumber.errors.required">Mobile number is required</span>
+                <span class="red" *ngIf="MobileNumber.errors.minlength">Mobile number must be atleast 10 digits.</span>
+                <span class="red" *ngIf="MobileNumber.errors.maxlength">Mobile number must not be more than 10 digits.</span>
+                <span class="red" *ngIf="MobileNumber.errors.pattern">Mobile number must be Numbers.</span>
+              </div>
+             <!-- <mat-form-field class="example-full-width">
+               <mat-label>Password</mat-label>
+               <input matInput placeholder="Password" formControlName="password">
+             </mat-form-field> -->
+            </form>
+             <div>
+                 <button mat-raised-button color="primary" (click)='loginMe()'>Submit</button>
+             </div>
+        </div>
+      </mat-tab>
+      <!-- <mat-tab label="Signup">
+        <app-signup></app-signup>
+      </mat-tab> -->
+  </mat-tab-group>
+  </div>

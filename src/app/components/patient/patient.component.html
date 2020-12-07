@@ -1,0 +1,38 @@
+<div>
+    <app-header [titleLabel] = 'titleToHeader'></app-header>
+    <div class="statusButton">
+        <button class="tableBtn" mat-raised-button color="primary" (click)='showTable()'>Status</button>
+    </div>
+    <div *ngIf="showtable" class="tableContainer">
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+            </ng-container>
+          
+            <ng-container matColumnDef="number">
+              <mat-header-cell *matHeaderCellDef> Number </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.number}} </mat-cell>
+            </ng-container>
+          
+            <ng-container matColumnDef="Dueamount">
+              <mat-header-cell *matHeaderCellDef> Amount to be paid </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.Dueamount}} </mat-cell>
+            </ng-container>
+          
+            <ng-container matColumnDef="monthlyduestatus">
+              <mat-header-cell *matHeaderCellDef> Payment Status </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.monthlyduestatus}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="monthspaid">
+              <mat-header-cell *matHeaderCellDef> Total months paid </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.monthspaid}} </mat-cell>
+            </ng-container>
+          
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+    </div>
+</div>
